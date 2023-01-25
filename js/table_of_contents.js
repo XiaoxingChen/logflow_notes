@@ -31,15 +31,11 @@ function headerLevel(s){
 }
 
 export function createTableOfContents(max_header_level){
-    let toc_div = document.getElementById('logflow_toc')
+    let toc_divs = document.getElementsByClassName('logflow_toc')
 
-    if(toc_div == null){
+    if(toc_divs.length == 0){
         return;
     }
-
-    let toc_header = document.createElement('h1')
-    toc_header.textContent = 'Table of Contents'
-    
 
     let tag_candidats = []
     
@@ -50,8 +46,11 @@ export function createTableOfContents(max_header_level){
 
     let collection = document.querySelectorAll(tag_candidats)
     let root_list_elem = document.createElement('ul');
-    toc_div.append(toc_header)
-    toc_div.append(root_list_elem)
+    for(let i = 0; i < toc_divs.length; i++)
+    {
+        toc_divs[i].append(root_list_elem)
+    }
+    
     let target_list_elem = root_list_elem
     let curr_level = 1
     
