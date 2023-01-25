@@ -32,6 +32,11 @@ function headerLevel(s){
 
 export function createTableOfContents(max_header_level){
     let toc_div = document.getElementById('logflow_toc')
+
+    if(toc_div == null){
+        return;
+    }
+
     let toc_header = document.createElement('h1')
     toc_header.textContent = 'Table of Contents'
     
