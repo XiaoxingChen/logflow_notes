@@ -86,7 +86,7 @@ function siblingsUnderHeading(heading_element)
     while(1){
         if(element_it == null) break;
 
-        if(isHeadingElement(element_it) && headingLevel(heading_element.tagName) >= self_level){
+        if(isHeadingElement(element_it) && headingLevel(heading_element.tagName) <= self_level){
             break;
         }
         ret.push(element_it)
