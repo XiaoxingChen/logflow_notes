@@ -2,6 +2,14 @@ function headerLevel(s){
     return Number(s.substr(1))
 }
 
+function getTextNodesText(element){
+    let text = '';
+    for (var i = 0; i < element.childNodes.length; ++i)
+    if (element.childNodes[i].nodeType === Node.TEXT_NODE)
+        text += element.childNodes[i].textContent;
+    return text
+}
+
 export function createTableOfContents(max_header_level){
     let toc_divs = document.getElementsByClassName('logflow_toc')
 
@@ -41,7 +49,8 @@ export function createTableOfContents(max_header_level){
         let target_li = document.createElement('li')
         target_list_elem.append(target_li)
         let target_a = document.createElement('a')
-        target_a.textContent = collection[i].innerText
+        console.log(collection[i].innerText)
+        target_a.innerText = getTextNodesText(collection[i])
         target_a.href = '#' + collection[i].id
         target_li.append(target_a)
     }
