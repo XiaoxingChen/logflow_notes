@@ -32,6 +32,12 @@ body{
     width: 6.5in;
     zoom: 100%;
 }
+.headerlink{
+    display: none
+}
+h1:hover > .headerlink{
+    display: inline-block;
+}
 div.frame
 {
     border: solid;
