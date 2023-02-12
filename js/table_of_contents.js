@@ -49,7 +49,7 @@ export function createTableOfContents(max_header_level){
         let target_li = document.createElement('li')
         target_list_elem.append(target_li)
         let target_a = document.createElement('a')
-        console.log(collection[i].innerText)
+        // console.log(collection[i].innerText)
         target_a.innerText = getTextNodesText(collection[i])
         target_a.href = '#' + collection[i].id
         target_li.append(target_a)

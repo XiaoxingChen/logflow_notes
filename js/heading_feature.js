@@ -75,7 +75,7 @@ function assignHeadingLink(tag_candidats){
 }
 
 function isHeadingElement(element){
-    return element.tagName in ['h1','h2','h3','h4','h5','h6']
+    return ['H1','H2','H3','H4','H5','H6'].includes(element.tagName)
 }
 
 function siblingsUnderHeading(heading_element)
@@ -85,8 +85,7 @@ function siblingsUnderHeading(heading_element)
     let ret = []
     while(1){
         if(element_it == null) break;
-
-        if(isHeadingElement(element_it) && headingLevel(heading_element.tagName) <= self_level){
+        if(isHeadingElement(element_it) && headingLevel(element_it.tagName) <= self_level){
             break;
         }
         ret.push(element_it)
